@@ -10,12 +10,12 @@ function computerPlay() {
   }
   
   
-  function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() === "rock") {
-      if (computerSelection === "paper") {
+  function playRound(userSelection, systemSelection) {
+    if (userSelection.toLowerCase() === "rock") {
+      if (systemSelection === "paper") {
         computerScore++;
         return lose;
-      } else if (computerSelection === "rock") {
+      } else if (systemSelection === "rock") {
         return tie;
       } else {
         userScore++;
@@ -23,11 +23,11 @@ function computerPlay() {
       }
     }
   
-    if (playerSelection.toLowerCase() === "scissors") {
-      if (computerSelection === "paper") {
+    if (userSelection.toLowerCase() === "scissors") {
+      if (systemSelection === "paper") {
         userScore++;
         return win;
-      } else if (computerSelection === "rock") {
+      } else if (systemSelection === "rock") {
         computerScore++;
         return lose;
       } else {
@@ -35,10 +35,10 @@ function computerPlay() {
       }
     }
   
-    if (playerSelection.toLowerCase() === "paper") {
-      if (computerSelection === "paper") {
+    if (userSelection.toLowerCase() === "paper") {
+      if (systemSelection === "paper") {
         return tie;
-      } else if (computerSelection === "rock") {
+      } else if (systemSelection === "rock") {
         userScore++;
         return win;
       } else {
@@ -56,9 +56,9 @@ function computerPlay() {
   let tie = "It is a tie"
   
   for(var i=0;i<5;i++){
-    let playerSelection = prompt("Pick a move");
-    const computerSelection = computerPlay()
-    console.log(playRound(playerSelection, computerSelection))
+    let userSelection = prompt("Pick a move");
+    const systemSelection = computerPlay()
+    console.log(playRound(userSelection, systemSelection))
     console.log("your score = " + userScore);
     console.log("Computer's score = " + computerScore);
   }
